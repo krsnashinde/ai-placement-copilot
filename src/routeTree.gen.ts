@@ -10,33 +10,204 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppRouteImport } from './routes/app'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppAptitudeRouteImport } from './routes/app.aptitude'
+import { Route as AppDsaRouteImport } from './routes/app.dsa'
+import { Route as AppInterviewRouteImport } from './routes/app.interview'
+import { Route as AppJobMatchRouteImport } from './routes/app.job-match'
+import { Route as AppMentorRouteImport } from './routes/app.mentor'
+import { Route as AppProfileRouteImport } from './routes/app.profile'
+import { Route as AppProgressRouteImport } from './routes/app.progress'
+import { Route as AppProjectRouteImport } from './routes/app.project'
+import { Route as AppResumeRouteImport } from './routes/app.resume'
+import { Route as AppSettingsRouteImport } from './routes/app.settings'
+import { Route as AppSkillGapRouteImport } from './routes/app.skill-gap'
+import { Route as AppStudyPlanRouteImport } from './routes/app.study-plan'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAptitudeRoute = AppAptitudeRouteImport.update({
+  id: '/aptitude',
+  path: '/aptitude',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDsaRoute = AppDsaRouteImport.update({
+  id: '/dsa',
+  path: '/dsa',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppInterviewRoute = AppInterviewRouteImport.update({
+  id: '/interview',
+  path: '/interview',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppJobMatchRoute = AppJobMatchRouteImport.update({
+  id: '/job-match',
+  path: '/job-match',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMentorRoute = AppMentorRouteImport.update({
+  id: '/mentor',
+  path: '/mentor',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProgressRoute = AppProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProjectRoute = AppProjectRouteImport.update({
+  id: '/project',
+  path: '/project',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppResumeRoute = AppResumeRouteImport.update({
+  id: '/resume',
+  path: '/resume',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSkillGapRoute = AppSkillGapRouteImport.update({
+  id: '/skill-gap',
+  path: '/skill-gap',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudyPlanRoute = AppStudyPlanRouteImport.update({
+  id: '/study-plan',
+  path: '/study-plan',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/app/aptitude': typeof AppAptitudeRoute
+  '/app/dsa': typeof AppDsaRoute
+  '/app/interview': typeof AppInterviewRoute
+  '/app/job-match': typeof AppJobMatchRoute
+  '/app/mentor': typeof AppMentorRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/progress': typeof AppProgressRoute
+  '/app/project': typeof AppProjectRoute
+  '/app/resume': typeof AppResumeRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/skill-gap': typeof AppSkillGapRoute
+  '/app/study-plan': typeof AppStudyPlanRoute
+  '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/app/aptitude': typeof AppAptitudeRoute
+  '/app/dsa': typeof AppDsaRoute
+  '/app/interview': typeof AppInterviewRoute
+  '/app/job-match': typeof AppJobMatchRoute
+  '/app/mentor': typeof AppMentorRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/progress': typeof AppProgressRoute
+  '/app/project': typeof AppProjectRoute
+  '/app/resume': typeof AppResumeRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/skill-gap': typeof AppSkillGapRoute
+  '/app/study-plan': typeof AppStudyPlanRoute
+  '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/app/aptitude': typeof AppAptitudeRoute
+  '/app/dsa': typeof AppDsaRoute
+  '/app/interview': typeof AppInterviewRoute
+  '/app/job-match': typeof AppJobMatchRoute
+  '/app/mentor': typeof AppMentorRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/progress': typeof AppProgressRoute
+  '/app/project': typeof AppProjectRoute
+  '/app/resume': typeof AppResumeRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/skill-gap': typeof AppSkillGapRoute
+  '/app/study-plan': typeof AppStudyPlanRoute
+  '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/app/aptitude'
+    | '/app/dsa'
+    | '/app/interview'
+    | '/app/job-match'
+    | '/app/mentor'
+    | '/app/profile'
+    | '/app/progress'
+    | '/app/project'
+    | '/app/resume'
+    | '/app/settings'
+    | '/app/skill-gap'
+    | '/app/study-plan'
+    | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/app/aptitude'
+    | '/app/dsa'
+    | '/app/interview'
+    | '/app/job-match'
+    | '/app/mentor'
+    | '/app/profile'
+    | '/app/progress'
+    | '/app/project'
+    | '/app/resume'
+    | '/app/settings'
+    | '/app/skill-gap'
+    | '/app/study-plan'
+    | '/app'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/app/aptitude'
+    | '/app/dsa'
+    | '/app/interview'
+    | '/app/job-match'
+    | '/app/mentor'
+    | '/app/profile'
+    | '/app/progress'
+    | '/app/project'
+    | '/app/resume'
+    | '/app/settings'
+    | '/app/skill-gap'
+    | '/app/study-plan'
+    | '/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +219,144 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/aptitude': {
+      id: '/app/aptitude'
+      path: '/aptitude'
+      fullPath: '/app/aptitude'
+      preLoaderRoute: typeof AppAptitudeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/dsa': {
+      id: '/app/dsa'
+      path: '/dsa'
+      fullPath: '/app/dsa'
+      preLoaderRoute: typeof AppDsaRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/interview': {
+      id: '/app/interview'
+      path: '/interview'
+      fullPath: '/app/interview'
+      preLoaderRoute: typeof AppInterviewRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/job-match': {
+      id: '/app/job-match'
+      path: '/job-match'
+      fullPath: '/app/job-match'
+      preLoaderRoute: typeof AppJobMatchRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/mentor': {
+      id: '/app/mentor'
+      path: '/mentor'
+      fullPath: '/app/mentor'
+      preLoaderRoute: typeof AppMentorRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/progress': {
+      id: '/app/progress'
+      path: '/progress'
+      fullPath: '/app/progress'
+      preLoaderRoute: typeof AppProgressRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/project': {
+      id: '/app/project'
+      path: '/project'
+      fullPath: '/app/project'
+      preLoaderRoute: typeof AppProjectRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/resume': {
+      id: '/app/resume'
+      path: '/resume'
+      fullPath: '/app/resume'
+      preLoaderRoute: typeof AppResumeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/skill-gap': {
+      id: '/app/skill-gap'
+      path: '/skill-gap'
+      fullPath: '/app/skill-gap'
+      preLoaderRoute: typeof AppSkillGapRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/study-plan': {
+      id: '/app/study-plan'
+      path: '/study-plan'
+      fullPath: '/app/study-plan'
+      preLoaderRoute: typeof AppStudyPlanRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppAptitudeRoute: typeof AppAptitudeRoute
+  AppDsaRoute: typeof AppDsaRoute
+  AppInterviewRoute: typeof AppInterviewRoute
+  AppJobMatchRoute: typeof AppJobMatchRoute
+  AppMentorRoute: typeof AppMentorRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppProgressRoute: typeof AppProgressRoute
+  AppProjectRoute: typeof AppProjectRoute
+  AppResumeRoute: typeof AppResumeRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppSkillGapRoute: typeof AppSkillGapRoute
+  AppStudyPlanRoute: typeof AppStudyPlanRoute
+  AppIndexRoute: typeof AppIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppAptitudeRoute: AppAptitudeRoute,
+  AppDsaRoute: AppDsaRoute,
+  AppInterviewRoute: AppInterviewRoute,
+  AppJobMatchRoute: AppJobMatchRoute,
+  AppMentorRoute: AppMentorRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppProgressRoute: AppProgressRoute,
+  AppProjectRoute: AppProjectRoute,
+  AppResumeRoute: AppResumeRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppSkillGapRoute: AppSkillGapRoute,
+  AppStudyPlanRoute: AppStudyPlanRoute,
+  AppIndexRoute: AppIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
