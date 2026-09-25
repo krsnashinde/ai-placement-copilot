@@ -84,7 +84,7 @@ function Dashboard() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
-        {[["Analyze resume", "/app/resume"], ["Take a mock interview", "/app/interview"], ["Build study plan", "/app/study-plan"]].map(([l, to]) => (
+        {([["Analyze resume", "/app/resume"], ["Take a mock interview", "/app/interview"], ["Build study plan", "/app/study-plan"]] as const).map(([l, to]) => (
           <Link key={to} to={to} className="border-2 border-ink bg-smoke p-5 font-display text-2xl uppercase transition-all hover:-translate-y-0.5 hover:shadow-brut">{l} →</Link>
         ))}
       </div>
