@@ -43,7 +43,7 @@ function Landing() {
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
           <div className="animate-rise">
             <p className="inline-block border-2 border-ink bg-ink px-3 py-1 font-mono text-[12px] uppercase tracking-[0.15em] text-saffron">AI Placement Copilot</p>
-            <h1 className="mt-5 font-display text-6xl uppercase leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl">Get placed.<br /><span className="bg-ink px-3 text-saffron">Actually.</span></h1>
+            <h1 className="mt-5 font-display text-6xl uppercase leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl">Get placed.<br /><span className="mt-2 inline-block bg-ink px-3 pt-2 text-saffron">Actually.</span></h1>
             <p className="mt-6 max-w-[46ch] text-lg font-medium text-ink/80">Your AI-powered companion for resume preparation, coding practice, interviews and software placement preparation.</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link to="/app/profile" className="btn-ink px-6 py-3.5 text-sm">Start Preparing</Link>
