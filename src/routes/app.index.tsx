@@ -55,16 +55,16 @@ function Dashboard() {
       </div>
 
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-        {[
+        {([
           ["Resume", fmt(scores.resume), scores.resume ?? 0, "/app/resume"],
           ["Job Match", fmt(scores.job), scores.job ?? 0, "/app/job-match"],
           ["DSA", fmt(scores.dsa), scores.dsa ?? 0, "/app/progress"],
           ["Interview", fmt(scores.interview, "/10"), (scores.interview ?? 0) * 10, "/app/interview"],
-        ].map(([l, v, w, to]) => (
-          <Link key={l as string} to={to as string} className="border-2 border-ink bg-paper p-4 transition-all hover:-translate-y-0.5 hover:shadow-brut">
+        ] as const).map(([l, v, w, to]) => (
+          <Link key={l} to={to} className="border-2 border-ink bg-paper p-4 transition-all hover:-translate-y-0.5 hover:shadow-brut">
             <p className="label-mono">{l}</p>
             <p className="mt-1 font-display text-4xl leading-none">{v}</p>
-            <Bar v={w as number} tone={l === "Job Match" ? "saffron" : "ink"} />
+            <Bar v={w} tone={l === "Job Match" ? "saffron" : "ink"} />
           </Link>
         ))}
         <Link to="/app/profile" className="col-span-2 border-2 border-ink bg-saffron p-4 md:col-span-1">

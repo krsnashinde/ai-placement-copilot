@@ -28,7 +28,7 @@ function Interview() {
     if (t) {
       setFeedback(t);
       const m = t.match(/(\d{1,2}(?:\.\d)?)\s*\/\s*10/);
-      if (m && +m[1] <= 10) update({ interview: +m[1] });
+      if (m?.[1] && Number(m[1]) <= 10) update({ interview: Number(m[1]) });
     }
   };
 

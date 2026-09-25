@@ -74,7 +74,7 @@ export const runAi = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const apiKey = process.env["LOVABLE_API_KEY"];
     if (!apiKey) return { ok: false as const, error: "AI is not configured." };
-    const t = TASKS[data.task];
+    const t = TASKS[data.task]!;
     const system = `# ROLE\nYou are ${t.role}.\n# TASK\n${t.task}\n# CONTEXT\nStudent profile:\n${data.profile || "(not provided)"}\n# CONSTRAINTS\nUse simple, practical language for beginners. Never invent facts about the student. Scores are AI-generated preparation indicators, not validated metrics.\n# OUTPUT FORMAT\n${t.format}`;
     const input = [
       ...(data.history ?? []).map((m) => ({ role: m.role, content: m.content })),

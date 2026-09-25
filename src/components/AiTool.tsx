@@ -41,7 +41,8 @@ export function useAi() {
 }
 
 export function AiTool({ task, fields, build, cta, onResult, extra }: {
-  task: string; fields: Field[]; build: (v: Record<string, string>) => string; cta: string;
+  task: string; fields: Field[]; // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  build: (v: any) => string; cta: string;
   onResult?: (text: string) => void; extra?: ReactNode;
 }) {
   const [values, setValues] = useState<Record<string, string>>(() => Object.fromEntries(fields.map((f) => [f.key, f.options?.[0] ?? ""])));
@@ -69,7 +70,7 @@ export function AiTool({ task, fields, build, cta, onResult, extra }: {
               <textarea rows={7} className="field-brut" placeholder={f.placeholder} value={values[f.key]} onChange={(e) => setValues({ ...values, [f.key]: e.target.value })} />
             ) : f.type === "select" ? (
               <select className="field-brut" value={values[f.key]} onChange={(e) => setValues({ ...values, [f.key]: e.target.value })}>
-                {f.options!.map((o) => <option key={o}>{o}</option>)}
+                {(f.options ?? []).map((o) => <option key={o}>{o}</option>)}
               </select>
             ) : (
               <input className="field-brut" placeholder={f.placeholder} value={values[f.key]} onChange={(e) => setValues({ ...values, [f.key]: e.target.value })} />
@@ -93,6 +94,6 @@ export function AiTool({ task, fields, build, cta, onResult, extra }: {
 
 export function extractScore(text: string) {
   const m = text.match(/(\d{1,3})\s*(%|\/\s*100)/);
-  if (m) { const n = +m[1]; if (n <= 100) return n; }
+  if (m) { const n = Number(m[1]); if (n <= 100) return n; }
   return undefined;
 }
